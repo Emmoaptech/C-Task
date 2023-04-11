@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Person P1 = new Person(1,"sarah","address-123","Karachi");
+            P1.Print_details();
+            Employee E1 = new Employee("1001",1,"ali","address1","Karachi");
+            E1.Print_details();
+            Manager M1 = new Manager("MAN1001","EMP1001", 1, "nida", "address1", "Karachi");
+            M1.Print_details();
+        }
+    }
+    class Person
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+
+        public Person(int id, string name, string address, string city)
+        {
+            Id = id;
+            Name = name;
+            Address = address;
+            City = city;
+        }
+        public void Print_details()
+        {
+            Console.WriteLine(this.Id);
+            Console.WriteLine(this.Name);
+            Console.WriteLine(this.Address);
+            Console.WriteLine(this.City);
+
+        }
+
+    }
+
+    class Employee : Person
+    {
+        public string Employee_code { get; set; }
+
+        public Employee(string employee_code , int Id , string Name , string Address ,string city) 
+            : base(Id , Name , Address,city)
+        {
+            Employee_code = employee_code;
+        }
+        public new void Print_details()
+        {
+            Console.WriteLine(this.Id);
+            Console.WriteLine(this.Employee_code);
+            Console.WriteLine(this.Name);
+            Console.WriteLine(this.Address);
+            Console.WriteLine(this.City);
+
+        }
+
+
+    }
+
+    class Manager : Employee
+    {
+        public string Manager_code { get; set; }
+
+        public Manager(string manager_code, string employee_code, int Id, string Name, string Address, string city)
+            : base(employee_code,Id, Name, Address, city)
+        {
+            Manager_code = manager_code;
+        }
+
+        public new void Print_details()
+        {
+            Console.WriteLine(this.Id);
+            Console.WriteLine(this.Employee_code);
+            Console.WriteLine(this.Manager_code);
+            Console.WriteLine(this.Name);
+            Console.WriteLine(this.Address);
+            Console.WriteLine(this.City);
+
+        }
+    }
+
+}

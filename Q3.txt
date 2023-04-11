@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter No of Elements");
+            
+            int[] arr_numb = new int[Convert.ToInt32(Console.ReadLine())];
+            Console.WriteLine("Enter Elements");
+
+            for (int a=0; a < arr_numb.Length; a++)
+            {
+                arr_numb[a] = Convert.ToInt32(Console.ReadLine());
+            }
+            int points = 0;
+            for (int b = 0; b < arr_numb.Length;b++)
+            {
+                if (arr_numb[b] == 8)
+                {
+                    points = points + 5;
+                }
+                else if (arr_numb[b] % 2 == 0)
+                {
+                    points++;
+                }
+                else
+                {
+                    points = points + 3;
+                }
+            }
+
+            Console.WriteLine(points);
+
+        }
+    } 
+
+}

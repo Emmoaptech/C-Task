@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int Customer_Count = 2;
+            List<Customer> customer_list = new List<Customer>();
+
+            for (int i = 0; i < Customer_Count; i++)
+            {
+                string name =  Console.ReadLine();
+                string email = Console.ReadLine();
+                string contact = Console.ReadLine();
+                int balance = Convert.ToInt32(Console.ReadLine());
+
+                customer_list.Add(new Customer(name,email,contact,balance));
+
+            }
+
+            foreach (Customer c in customer_list)
+            {
+                c.print_details();
+                Console.WriteLine(c.myBalance());
+            }
+
+        }
+    }
+
+    class Customer
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Contact_no { get; set; }
+        public int Balance_amount { get; set; }
+        public Customer(string Name,string Email , string Contact_no,int Balance_amount)
+        {
+            this.Name = Name;
+            this.Email = Email;
+            this.Contact_no = Contact_no;
+            this.Balance_amount = Balance_amount;
+        }
+        public void print_details()
+        {
+            Console.WriteLine(Name);
+            Console.WriteLine(Email);
+            Console.WriteLine(Contact_no);
+            Console.WriteLine(Balance_amount);
+
+        }
+        public int myBalance()
+        {
+            return Balance_amount * 100;
+        }
+    }
+}

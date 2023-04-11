@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr_numb = new int[10];
+            Random r1 = new Random();
+
+            for (int i = 0; i < arr_numb.Length; i++)
+            {
+                arr_numb[i] = r1.Next(100,1000);
+            }
+            foreach (var i in arr_numb)
+            {
+                Console.WriteLine(i);
+            }
+            int max = arr_numb[0];
+            int min = arr_numb[0];
+
+            for (int i  = 0; i < arr_numb.Length; i++)
+            {
+                if (arr_numb[i] > max)
+                {
+                    max = arr_numb[i];
+                }
+                if (arr_numb[i] < min)
+                {
+                    min = arr_numb[i];
+                }
+            }
+            Console.WriteLine("Maximum "+max);
+            Console.WriteLine("Minimum " + min);
+
+
+
+        }
+    } 
+
+}
